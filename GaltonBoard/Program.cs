@@ -15,7 +15,7 @@ namespace GaltonBoard
             _floor = Int32.Parse(Console.In.ReadLine());
             Console.Out.Write("Num: ");
             uint num = UInt32.Parse(Console.In.ReadLine());
-            uint[] count = new UInt32[_floor];
+            uint[] count = new UInt32[_floor + 1];
             Random random = new Random(Environment.TickCount);
             while (true)
             {
@@ -25,8 +25,8 @@ namespace GaltonBoard
                 {
                     num--;
                     _total++;
-                    float position = (float)(_floor + 1) / 2;
-                    for (int i = 0; i < _floor - 1; i++)
+                    float position = (float)(_floor + 2) / 2;
+                    for (int i = 0; i < _floor; i++)
                     {
                         position += random.Next() % 2 == 0 ? 0.5f : -0.5f;
                     }
@@ -45,7 +45,7 @@ namespace GaltonBoard
         {
             Console.Clear();
             Console.WriteLine($"Total Floor: {_floor}\n");
-            for (int i = 0; i < _floor; i++)
+            for (int i = 0; i < _floor + 1; i++)
             {
                 string outStr = String.Empty;
                 outStr += i + 1;
